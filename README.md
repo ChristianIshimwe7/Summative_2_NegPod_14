@@ -8,7 +8,7 @@ This repository contains an application that registers students' details into th
 
 To use this application:
 
-Students will use the Command Line Interface on their personal computer to install the directory titled "negpod_14-q1" containing the application from a remote server or paste the the following command on the command line of their local computer: "git clone https://github.com/hubertmucyo/summative-2_Negpod_14.git" and then open the afore-mentioned directory.
+Students will use the Command Line Interface on their personal computer to install the directory titled "negpod_14-q1" containing the application from a remote server or paste the the following command on the command line of their local computer: "git clone https://github.com/ChristianIshimwe7/Summative_2_NegPod_14" and then open the afore-mentioned directory.
 
 To run the application, run the file "main.sh" on the command line using the following command "./main.sh"
 
