@@ -27,7 +27,11 @@ Students may also use the application to perform the following tasks: -View all 
 Contributors
 
 1.Christian ISHIMWE
+
 2.Noella UMWALI
+
 3.Ketia Mukakalisa
+
 4.Samuel Dushimimana
+
 5.John Obure
