@@ -4,7 +4,23 @@ STUDENT_LIST_FILE="students-list_1023.txt"
 
 #Function to add a new student's information
 create_new_student() {
+    echo "Enter student's ID:"
+    read id
 
+    echo "Enter student's email:"
+    read email
+
+    echo "Enter student's age:"
+    read age
+
+    # Check if ID or email is found
+    if grep -q "^$id," "$STUDENT_LIST_FILE"; then
+        echo "Student with ID $id exists."
+    elif grep -q "$email" "$STUDENT_LIST_FILE"; then
+        echo "Student with email $email exists."
+    else
+        echo "$id, $email, $age" >> "$STUDENT_LIST_FILE"
+        echo "The Student's information is added successfully."
 }
 
 view_all_students() {
