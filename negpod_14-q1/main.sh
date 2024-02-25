@@ -35,7 +35,18 @@ if [ -s "$STUDENT_LIST_FILE" ]; then
     fi
 }
 
+#Function to delete student's information
 delete_student_data() {
+    echo "Enter student ID to delete:"
+    read id
+
+    # Check if ID exists before deletion
+    if grep -q "^$id," "$STUDENT_LIST_FILE"; then
+        sed -i "/^$id,/d" "$STUDENT_LIST_FILE"
+        echo "Student with ID $id deleted successfully."
+    else
+        echo "Student with ID $id is not found!"
+    fi
 }
 
 update_student_data() {
