@@ -23,8 +23,16 @@ create_new_student() {
         echo "The Student's information is added successfully."
 }
 
+#Function to display students' information
 view_all_students() {
-
+if [ -s "$STUDENT_LIST_FILE" ]; then
+        echo "List of all students"
+        echo "ID  | Student Email        | Age"
+        echo "----|-----------------------|----"
+        awk -F ", " '{printf "%-4s| %-23s| %-3s\n", $1, $2, $3}' "$STUDENT_LIST_FILE"
+    else
+        echo "No students found!"
+    fi
 }
 
 delete_student_data() {
