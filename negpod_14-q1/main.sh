@@ -21,11 +21,12 @@ create_new_student() {
     else
         echo "$id, $email, $age" >> "$STUDENT_LIST_FILE"
         echo "The Student's information is added successfully."
+    fi
 }
 
 #Function to display students' information
 view_all_students() {
-if [ -s "$STUDENT_LIST_FILE" ]; then
+    if [ -s "$STUDENT_LIST_FILE" ]; then
         echo "List of all students"
         echo "ID  | Student Email        | Age"
         echo "----|-----------------------|----"
@@ -51,7 +52,7 @@ delete_student_data() {
 
 #Function to update  student's information
 update_student_data() {
-echo "Enter student's ID:"
+    echo "Enter student's ID:"
     read update_id
 
     # Check if ID exists before updating
@@ -62,7 +63,13 @@ echo "Enter student's ID:"
         read updated_age
 
         # Update the student record
-        awk -v id="$update_id" -v email="$updated_email" -v age="$updated_age" 'BEGIN {FS = ", "} $1 == id {$1 = id; $2 = email; $3 = age; printf "%s, %s, %s\n", $1, $2, $3; next} {print}' "$S
+        awk -v id="$update_id" -v email="$updated_email" -v age="$updated_age" 'BEGIN {FS = ", "} $1 == id {$1 = id; $2 = email; $3 = age; printf "%s, %s, %s\n", $1, $2, $3; next} {print}' "$STUDENT_LIST_FILE" > temp.txt
+        mv temp.txt "$STUDENT_LIST_FILE"
+
+        echo "Student is updated successfully."
+    else
+        echo "Sorry, Student ID is not found!"
+    fi
 }
 
 # Function to exit the application
