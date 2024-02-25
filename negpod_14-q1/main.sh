@@ -14,8 +14,20 @@ view_all_students() {
 delete_student_data() {
 }
 
+#Function to update  student's information
 update_student_data() {
+echo "Enter student's ID:"
+    read update_id
 
+    # Check if ID exists before updating
+    if grep -q "^$update_id," "$STUDENT_LIST_FILE"; then
+        echo "Enter updated email:"
+        read updated_email
+        echo "Enter updated age:"
+        read updated_age
+
+        # Update the student record
+        awk -v id="$update_id" -v email="$updated_email" -v age="$updated_age" 'BEGIN {FS = ", "} $1 == id {$1 = id; $2 = email; $3 = age; printf "%s, %s, %s\n", $1, $2, $3; next} {print}' "$S
 }
 
 # Function to exit the application
